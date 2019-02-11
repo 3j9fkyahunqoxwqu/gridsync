@@ -56,7 +56,8 @@ script:
   - python3 -m tox
   - make all
   - dist/Tahoe-LAFS/tahoe --version-and-path
-  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then xvfb-run -a dist/Gridsync/gridsync --version; fi
+  #- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then xvfb-run -a dist/Gridsync/gridsync --version; fi
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then dist/Gridsync/gridsync --version; fi
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then dist/Gridsync.app/Contents/MacOS/Gridsync --version; fi
 after_success:
   - coveralls
