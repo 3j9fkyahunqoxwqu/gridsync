@@ -18,7 +18,8 @@ matrix:
       #cache: pip
 install:
   #- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then echo "deb http://us.archive.ubuntu.com/ubuntu/ xenial main universe" | sudo tee -a /etc/apt/sources.list; fi
-  #- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sudo apt-get -y update; fi
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sudo apt-get -y update; fi
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sudo apt-get -y dist-upgrade; fi
   #- if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sudo apt-get -y install build-essential xvfb; fi
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sudo apt-get -y install libxkbcommon-x11-0; fi
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sudo dpkg -l; fi
